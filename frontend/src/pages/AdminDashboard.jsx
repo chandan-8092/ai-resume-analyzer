@@ -374,7 +374,7 @@ const AdminDashboard = () => {
                     </td>
                     <td className="px-6 py-4 text-right flex items-center justify-end gap-2">
                       <a
-                        href={`http://localhost:5000/api/resumes/${r._id}/download`}
+                        href={`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/resumes/${r._id}/download`}
                         download
                         className="p-2 text-slate-500 hover:text-indigo-600 hover:bg-indigo-50 dark:hover:bg-indigo-950/30 dark:hover:text-indigo-400 rounded-lg transition-colors"
                         title="Download Document"

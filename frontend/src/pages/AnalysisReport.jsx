@@ -122,7 +122,7 @@ const AnalysisReport = () => {
           </button>
           
           <a
-            href={`http://localhost:5000/api/resumes/${resume._id}/download`}
+            href={`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/resumes/${resume._id}/download`}
             download
             className="flex items-center gap-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 px-4 py-2.5 text-xs font-bold text-white shadow-sm transition-all"
           >

@@ -311,7 +311,7 @@ const Dashboard = () => {
                         <Eye className="h-4.5 w-4.5" />
                       </Link>
                       <a
-                        href={`http://localhost:5000/api/resumes/${resume._id}/download`}
+                        href={`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/resumes/${resume._id}/download`}
                         download
                         className="p-2 text-slate-500 hover:text-emerald-600 hover:bg-emerald-50 dark:hover:bg-emerald-950/30 dark:hover:text-emerald-400 rounded-lg transition-colors"
                         title="Download Original Doc"
