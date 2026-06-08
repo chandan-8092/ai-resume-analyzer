@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-900 transition-colors duration-200 font-sans antialiased;
+  }
+  
+  html.dark body {
+    @apply bg-slate-950 text-slate-50;
+  }
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  @apply bg-white/70 backdrop-blur-md border border-slate-200/50 shadow-sm dark:bg-slate-900/75 dark:border-slate-800/50;
+}
+
+.glass-card {
+  @apply bg-white/80 backdrop-blur-md border border-slate-200/60 shadow-md hover:shadow-lg transition-all duration-300 rounded-2xl dark:bg-slate-900/80 dark:border-slate-800/60;
+}
+
+/* Glow effects */
+.glow-indigo {
+  box-shadow: 0 0 40px -5px rgba(99, 102, 241, 0.15);
+}
+
+.glow-violet {
+  box-shadow: 0 0 40px -5px rgba(139, 92, 246, 0.15);
+}
+
+/* Custom Hide Scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Smooth Input Styles */
+.input-field {
+  @apply w-full rounded-xl border border-slate-200 bg-white/50 px-4 py-3 text-slate-900 placeholder-slate-400 outline-none transition-all focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-100 dark:border-slate-800 dark:bg-slate-950/50 dark:text-slate-100 dark:placeholder-slate-500 dark:focus:border-indigo-500 dark:focus:bg-slate-950 dark:focus:ring-indigo-950/50;
+}
+
+/* Dashboard Spacing offsets */
+.dashboard-container {
+  @apply min-h-screen;
+}
+
+
+
+/* Standard Print Styles for downloading resume reports */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  
+  .no-print, 
+  nav, 
+  aside,
+  button {
+    display: none !important;
+  }
+  
+  .print-full-width {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    width: 100% !important;
+  }
+
+  .glass-card {
+    border: 1px solid #ddd !important;
+    box-shadow: none !important;
+    background: white !important;
+    page-break-inside: avoid;
+  }
+}
