@@ -48,9 +48,15 @@ export const AuthProvider = ({ children }) => {
       setUser(userData);
       return { success: true };
     } catch (error) {
+      let message = 'Invalid email or password';
+      if (!error.response) {
+        message = 'Server connection failed. Please check if the backend is running.';
+      } else if (error.response.data && error.response.data.message) {
+        message = error.response.data.message;
+      }
       return {
         success: false,
-        message: error.response?.data?.message || 'Invalid email or password',
+        message,
       };
     }
   };
@@ -65,9 +71,15 @@ export const AuthProvider = ({ children }) => {
       setUser(userData);
       return { success: true };
     } catch (error) {
+      let message = 'Registration failed. Try again.';
+      if (!error.response) {
+        message = 'Server connection failed. Please check if the backend is running.';
+      } else if (error.response.data && error.response.data.message) {
+        message = error.response.data.message;
+      }
       return {
         success: false,
-        message: error.response?.data?.message || 'Registration failed. Try again.',
+        message,
       };
     }
   };

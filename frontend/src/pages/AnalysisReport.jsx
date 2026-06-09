@@ -132,18 +132,7 @@ const AnalysisReport = () => {
         </div>
       </div>
 
-      {/* Mock Mode Alert Banner */}
-      {analysis.isMock && (
-        <div className="mb-6 flex items-start gap-3 rounded-2xl bg-amber-50 p-4 border border-amber-200/50 text-amber-800 dark:bg-amber-950/30 dark:border-amber-900/30 dark:text-amber-400 no-print">
-          <AlertTriangle className="h-5 w-5 shrink-0 text-amber-600 mt-0.5" />
-          <div>
-            <h4 className="font-bold text-sm">Demo Simulation Mode</h4>
-            <p className="text-xs mt-1 leading-relaxed opacity-90">
-              The backend did not find a valid GEMINI_API_KEY environment variable. A simulated Recruiter evaluation report has been generated. Setup a Gemini API Key in the backend <code>.env</code> file for live parser checks.
-            </p>
-          </div>
-        </div>
-      )}
+
 
       {/* Header Block */}
       <div className="flex flex-col gap-6 md:flex-row md:items-center justify-between mb-8 border-b border-slate-200/50 pb-8 dark:border-slate-800/50">

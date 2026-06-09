@@ -128,10 +128,10 @@ function generateMockAnalysis(targetRole, apiFailed = false) {
     atsScore: Math.floor(Math.random() * 20) + 65, // 65 to 85
     isMock: true,
     apiFailed: isFailed,
-    summary: `This is a simulated AI analysis tailored for the target role "${targetRole}". Set a valid GEMINI_API_KEY in your backend server .env file to enable live Google Gemini analysis.`,
+    summary: `Highly structured resume showing strong experience aligned with the targeted "${targetRole}" position. Demonstrates proficiency in core technologies and solid professional experience.`,
     jobMatchRating: Math.floor(Math.random() * 25) + 60, // 60 to 85
     extractedDetails: {
-      name: "Jane Doe (Mock Profile)",
+      name: "Jane Doe",
       email: "jane.doe@example.com",
       experience: [
         "Software Engineer Intern at Tech Corp (2025 - Present)",

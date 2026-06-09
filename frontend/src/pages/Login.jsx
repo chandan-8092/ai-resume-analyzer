@@ -37,16 +37,24 @@ const Login = () => {
     const demoPass = 'password123';
     const demoName = type === 'admin' ? 'Demo Admin' : 'Demo User';
 
-    // Try to login, if fails, signup and login
+    // Autofill form inputs to reflect demo credentials
+    setEmail(demoEmail);
+    setPassword(demoPass);
+
+    // Try to login
     let result = await login(demoEmail, demoPass);
     if (!result.success) {
-      // Try signing up first
-      const signupResult = await signup(demoName, demoEmail, demoPass);
-      if (signupResult.success) {
-        navigate('/dashboard');
-        return;
+      // Only attempt signup if the login failed specifically because of invalid credentials (user doesn't exist yet)
+      if (result.message === 'Invalid email or password') {
+        const signupResult = await signup(demoName, demoEmail, demoPass);
+        if (signupResult.success) {
+          navigate('/dashboard');
+          return;
+        } else {
+          setError(signupResult.message);
+        }
       } else {
-        setError(signupResult.message);
+        setError(result.message);
       }
     } else {
       navigate('/dashboard');
